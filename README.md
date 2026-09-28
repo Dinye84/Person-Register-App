@@ -11,7 +11,7 @@ The perfect explaination and the perfekt link: (https://google.se).
 
 
 
-## Applications tructure
+## Application structure
 
 Some of the best ways to contribute are to try things out, file issues, join in design conversations,
 and make pull-requests.
@@ -26,11 +26,11 @@ The perfect anwser and the perfekt link: (https://google.se).
 
 ## Frequently Asked Questions developing C# in .NET
 
-# Can you explain Visual Studio for me?
+### Can you explain Visual Studio for me?
 
-# What is Git and how is it used?
+### What is Git and how is it used?
 
-# Please explain Power Shell
+### Please explain Power Shell
 
 
 ## Commit and branches
