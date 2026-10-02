@@ -7,13 +7,20 @@ namespace PersonRegisterAssignment
 {
     public class HardcodedPeopleData
     {
-        public List<Person> hardcodedListOfPeople = new List<Person>();
+        public List<Person> hardcodedPeopleDataList = new List<Person>();
 
         public HardcodedPeopleData()
         {
-            hardcodedListOfPeople.Add(person1);
-            hardcodedListOfPeople.Add(person2);
-            hardcodedListOfPeople.Add(person3);
+            hardcodedPeopleDataList.Add(person6);
+            hardcodedPeopleDataList.Add(person2);
+            hardcodedPeopleDataList.Add(person9);
+            hardcodedPeopleDataList.Add(person1);
+            hardcodedPeopleDataList.Add(person7);
+            hardcodedPeopleDataList.Add(person4);
+            hardcodedPeopleDataList.Add(person10);
+            hardcodedPeopleDataList.Add(person3);
+            hardcodedPeopleDataList.Add(person8);
+            hardcodedPeopleDataList.Add(person5);
         }
 
         //Hardcoded demo objects
@@ -25,16 +32,19 @@ namespace PersonRegisterAssignment
             Name = "Andreas Karlsson",
             Email = "andreas@andreas.com",
             Address = "Testvägen 11b, 70221 Stockholm",
+            PostCode = 12345,
             Company = "Skofabriken",
             Slogan = "Vi gör bättre skor",
 
         };
+
         Person person2 = new()
         {
             Id = 2,
             Name = "Bertil Svennson",
             Email = "bertil@bertil.com",
             Address = "Testvägen 12b, 70222 Stockholm",
+            PostCode = 12345,
             Company = "Nyckelfabriken",
             Slogan = "Vi gör bättre nycklar",
 
@@ -46,6 +56,7 @@ namespace PersonRegisterAssignment
             Name = "Cecilia Larsson",
             Email = "cecilia@cecilia.com",
             Address = "Testvägen 13b, 70223 Stockholm",
+            PostCode = 12345,
             Company = "Tröjfabriken",
             Slogan = "Vi gör bättre tröjor",
         };
@@ -56,6 +67,7 @@ namespace PersonRegisterAssignment
             Name = "David Davidsson",
             Email = "david@david.com",
             Address = "Testvägen 14b, 70224 Stockholm",
+            PostCode = 12345,
             Company = "Cykelfabriken",
             Slogan = "Vi gör bättre cyklar",
         };
@@ -66,6 +78,7 @@ namespace PersonRegisterAssignment
             Name = "Elin Elinsson",
             Email = "elin@elin.com",
             Address = "Testvägen 15b, 70225 Stockholm",
+            PostCode = 12345,
             Company = "Bokfabriken",
             Slogan = "Vi gör bättre böcker",
         };
@@ -76,6 +89,7 @@ namespace PersonRegisterAssignment
             Name = "Fredrik Fredirksson",
             Email = "fredrik@fredrik.com",
             Address = "Testvägen 16b, 70226 Stockholm",
+            PostCode = 12345,
             Company = "Lampfabriken",
             Slogan = "Vi gör bättre lampor",
         };
@@ -86,6 +100,7 @@ namespace PersonRegisterAssignment
             Name = "Greta Svensson",
             Email = "greta@greta.com",
             Address = "Testvägen 17b, 70227 Stockholm",
+            PostCode = 12345,
             Company = "Stolfabriken",
             Slogan = "Vi gör bättre stolar",
         };
@@ -96,6 +111,7 @@ namespace PersonRegisterAssignment
             Name = "Henrik Henriksson",
             Email = "henrik@henrik.com",
             Address = "Testvägen 18b, 70228 Stockholm",
+            PostCode = 12345,
             Company = "Bordfabriken",
             Slogan = "Vi gör bättre bord",
         };
@@ -106,6 +122,7 @@ namespace PersonRegisterAssignment
             Name = "Isabella Jönsson",
             Email = "isabella@isabella.com",
             Address = "Testvägen 19b, 70229 Stockholm",
+            PostCode = 12345,
             Company = "Väskfabriken",
             Slogan = "Vi gör bättre väskor",
         };
@@ -116,10 +133,9 @@ namespace PersonRegisterAssignment
             Name = "Johan Karlsson",
             Email = "johan@johan.com",
             Address = "Testvägen 20b, 70230 Stockholm",
+            PostCode = 12345,
             Company = "Mössfabriken",
             Slogan = "Vi gör bättre mössor",
         };
-
     }
-
 }

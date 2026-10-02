@@ -2,7 +2,7 @@
 
 namespace PersonRegisterAssignment
 {
-    public class Person
+    public class Person : IComparer<T>
 
     {
         private int _id = 0;
@@ -29,6 +29,12 @@ namespace PersonRegisterAssignment
             get { return _address; } 
             set { _address = value; } 
         }
+        private int _postCode = 0;
+        public int PostCode
+        {
+            get { return _postCode; }
+            set { _postCode = value; }
+        }
         private string _company = "-";
         public string Company 
         { 
@@ -48,6 +54,7 @@ namespace PersonRegisterAssignment
             _name = Name;
             _email = Email;
             _address = Address;
+            _postCode = PostCode;
             _company = Company;
             _slogan = Slogan;
         }
@@ -56,13 +63,20 @@ namespace PersonRegisterAssignment
         /// Combines several data sources and combines them to one list
         /// </summary>
 
+
+        public int? CompareTo(List<Person> other)
+        {
+            return Id.CompareTo(Id);
+        }
         public static List<Person> GetPeople()
         {
             //External data sources will be set here.
             HardcodedPeopleData hardcodedPeopleData = new();
-            List<Person> combinedPeopleData = hardcodedPeopleData.hardcodedListOfPeople;
+            
+            List<Person> combinedPeopleDataList = hardcodedPeopleData.hardcodedPeopleDataList;
+            CompareTo(combinedPeopleDataList);
 
-            return combinedPeopleData;
+            return combinedPeopleDataList;
         }
   
     }

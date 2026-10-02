@@ -4,8 +4,9 @@
     {
         static void Main(string[] args)
         {
-            List<Person> person = Person.GetPeople();
-            RegisterFunctions.PrintInfo(person[1].Name);
+            List<Person> combinedPeopleDataList = Person.GetPeople();
+
+            RegisterFunctions.PrintInfo(combinedPeopleDataList);
         }
     }
 }
