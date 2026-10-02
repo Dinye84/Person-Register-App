@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            List<Person> person = Person.GetPeople();
+            RegisterFunctions.PrintInfo(person[1].Name);
         }
     }
 }
+
