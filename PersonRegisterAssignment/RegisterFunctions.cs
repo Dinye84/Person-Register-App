@@ -12,6 +12,13 @@ namespace PersonRegisterAssignment
         /// </summary>
         /// <param name="combinedPeopleList"></param>
 
+
+        public static IEnumerable<Person> SortByNameAscending()
+        {
+            List<Person> combinedPeopleList = Person.GetPeople();
+            var sortedNameAscendingPeopleList = combinedPeopleList.OrderBy(t => t.Email);
+            return sortedNameAscendingPeopleList;
+        }
         public static void PrintInfo(List<Person> combinedPeopleList)
         {
             List<string> structuredObject = new();
@@ -57,5 +64,7 @@ namespace PersonRegisterAssignment
         }
 
         
+
+
     }
 }
