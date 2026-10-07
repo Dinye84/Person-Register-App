@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PersonRegisterAssignment/1.0.0": {
+        "runtime": {
+          "PersonRegisterAssignment.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PersonRegisterAssignment/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

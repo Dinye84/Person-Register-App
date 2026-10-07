@@ -1,0 +1,67 @@
+classDiagram
+    direction LR
+
+    class Person {
+        +int Id
+        +string Name
+        +string Email
+        +Address Address
+        +Company Company
+    }
+
+    class Address {
+        +string StreetAddress
+        +string PostalCode
+        +string City
+    }
+
+    class Company {
+        +string Name
+        +string Slogan
+    }
+
+    class IPeopleDataSource {
+        <<interface>>
+        +GetPeople() IEnumerable~Person~
+    }
+
+    class HardcodedPeopleDataSource {
+        +GetPeople() IEnumerable~Person~
+    }
+
+    class JsonPeopleDataSource {
+        +GetPeople() IEnumerable~Person~
+    }
+
+    class PeopleRegisterService {
+        +GetAllById() IEnumerable~Person~
+        +GetTopFiveById() IEnumerable~Person~
+        +GetAllByName() IEnumerable~Person~
+        +GetTopFiveByName() IEnumerable~Person~
+        +SearchByName(string searchText) IEnumerable~Person~
+    }
+
+    class Menu {
+        +Run()
+        -ShowMenu()
+        -HandleChoice(string choice)
+    }
+
+    class CommandLineHandler {
+        +Run(string[] args) int
+    }
+
+    class PersonDisplay {
+        +PrintPeople(IEnumerable~Person~ people)
+        +PrintNoResults()
+    }
+
+    IPeopleDataSource <|.. HardcodedPeopleDataSource : implements
+    IPeopleDataSource <|.. JsonPeopleDataSource : implements
+    Person *-- Address : has one
+    Person *-- Company : has one
+    PeopleRegisterService --> IPeopleDataSource : retrieves people
+    Menu --> PeopleRegisterService : uses
+    Menu --> PersonDisplay : displays
+    CommandLineHandler --> PeopleRegisterService : uses
+    CommandLineHandler --> PersonDisplay : displays

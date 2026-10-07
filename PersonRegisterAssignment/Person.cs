@@ -2,7 +2,7 @@
 
 namespace PersonRegisterAssignment
 {
-    public class Person : IComparer<T>
+    public class Person
 
     {
         private int _id = 0;
@@ -64,17 +64,14 @@ namespace PersonRegisterAssignment
         /// </summary>
 
 
-        public int? CompareTo(List<Person> other)
-        {
-            return Id.CompareTo(Id);
-        }
+
         public static List<Person> GetPeople()
         {
             //External data sources will be set here.
             HardcodedPeopleData hardcodedPeopleData = new();
             
             List<Person> combinedPeopleDataList = hardcodedPeopleData.hardcodedPeopleDataList;
-            CompareTo(combinedPeopleDataList);
+            
 
             return combinedPeopleDataList;
         }

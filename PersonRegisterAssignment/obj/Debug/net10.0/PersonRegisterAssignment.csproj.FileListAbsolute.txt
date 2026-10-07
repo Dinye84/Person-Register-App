@@ -1,0 +1,15 @@
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\bin\Debug\net10.0\PersonRegisterAssignment.exe
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\bin\Debug\net10.0\PersonRegisterAssignment.deps.json
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\bin\Debug\net10.0\PersonRegisterAssignment.runtimeconfig.json
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\bin\Debug\net10.0\PersonRegisterAssignment.dll
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\bin\Debug\net10.0\PersonRegisterAssignment.pdb
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.AssemblyInfoInputs.cache
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.AssemblyInfo.cs
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.sourcelink.json
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.dll
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\refint\PersonRegisterAssignment.dll
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.pdb
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\PersonRegisterAssignment.genruntimeconfig.cache
+C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\obj\Debug\net10.0\ref\PersonRegisterAssignment.dll
