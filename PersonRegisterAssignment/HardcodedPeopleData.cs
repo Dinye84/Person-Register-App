@@ -11,131 +11,185 @@ namespace PersonRegisterAssignment
 
         public HardcodedPeopleData()
         {
-            hardcodedPeopleDataList.Add(person6);
-            hardcodedPeopleDataList.Add(person2);
-            hardcodedPeopleDataList.Add(person9);
-            hardcodedPeopleDataList.Add(person1);
-            hardcodedPeopleDataList.Add(person7);
-            hardcodedPeopleDataList.Add(person4);
-            hardcodedPeopleDataList.Add(person10);
-            hardcodedPeopleDataList.Add(person3);
-            hardcodedPeopleDataList.Add(person8);
-            hardcodedPeopleDataList.Add(person5);
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 7,
+                Name = "Gandalf the Grey",
+                Email = "gandalf@istari.me",
+                Address = new Address
+                {
+                    Street = "Bag End Lane 3",
+                    PostCode = 10021,
+                    City = "Hobbiton"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Gandalf's Fireworks",
+                    Slogan = "A little magic goes a long way."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 3,
+                Name = "Legolas Greenleaf",
+                Email = "legolas@woodlandrealm.me",
+                Address = new Address
+                {
+                    Street = "Forest River Road 18",
+                    PostCode = 30512,
+                    City = "Woodland Realm"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Greenleaf Archery",
+                    Slogan = "Every arrow finds its mark."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 10,
+                Name = "Samwise Gamgee",
+                Email = "sam@shire.me",
+                Address = new Address
+                {
+                    Street = "Bagshot Row 3",
+                    PostCode = 10022,
+                    City = "Hobbiton"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Sam's Gardening Services",
+                    Slogan = "Helping things grow, even in the darkest places."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 1,
+                Name = "Aragorn Elessar",
+                Email = "aragorn@gondor.me",
+                Address = new Address
+                {
+                    Street = "King's Court 1",
+                    PostCode = 70001,
+                    City = "Minas Tirith"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Strider's Wilderness Guides",
+                    Slogan = "Every journey deserves a trusted guide."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 8,
+                Name = "Gimli, Son of Glóin",
+                Email = "gimli@erebor.me",
+                Address = new Address
+                {
+                    Street = "Stone Hall 24",
+                    PostCode = 40510,
+                    City = "Erebor"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Gimli's Mining Company",
+                    Slogan = "Nobody tosses a dwarf."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 5,
+                Name = "Frodo Baggins",
+                Email = "frodo@shire.me",
+                Address = new Address
+                {
+                    Street = "Bag End 1",
+                    PostCode = 10020,
+                    City = "Hobbiton"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Frodo's Courier Service",
+                    Slogan = "No delivery is too important to carry."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 2,
+                Name = "Éowyn of Rohan",
+                Email = "eowyn@rohan.me",
+                Address = new Address
+                {
+                    Street = "Golden Hall Road 7",
+                    PostCode = 60014,
+                    City = "Edoras"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Éowyn's Riding Academy",
+                    Slogan = "Ride with courage. Fear no challenge."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 9,
+                Name = "Bilbo Baggins",
+                Email = "bilbo@shire.me",
+                Address = new Address
+                {
+                    Street = "Bag End 2",
+                    PostCode = 10020,
+                    City = "Hobbiton"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Bilbo's Adventure Tours",
+                    Slogan = "Your next unexpected journey starts here."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 4,
+                Name = "Arwen Undómiel",
+                Email = "arwen@rivendell.me",
+                Address = new Address
+                {
+                    Street = "Last Homely House 8",
+                    PostCode = 30015,
+                    City = "Rivendell"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Arwen's Fine Jewellery",
+                    Slogan = "Timeless beauty, crafted to last."
+                }
+            });
+
+            hardcodedPeopleDataList.Add(new()
+            {
+                Id = 6,
+                Name = "Peregrin Took",
+                Email = "pippin@shire.me",
+                Address = new Address
+                {
+                    Street = "Great Smials 11",
+                    PostCode = 10035,
+                    City = "Tuckborough"
+                },
+                Company = new Company
+                {
+                    CompanyName = "Pippin's Catering",
+                    Slogan = "Breakfast, second breakfast, and everything in between."
+                }
+            });
         }
-
-        //Hardcoded demo objects
-        //Note, for transparacy: first instance is manually made,
-        //other 9 are ai-generated for convinience.
-        Person person1 = new()
-        {
-            Id = 1,
-            Name = "Andreas Karlsson",
-            Email = "andreas@andreas.com",
-            Address = "Testvägen 11b, 70221 Stockholm",
-            PostCode = 12345,
-            Company = "Skofabriken",
-            Slogan = "Vi gör bättre skor",
-
-        };
-
-        Person person2 = new()
-        {
-            Id = 2,
-            Name = "Bertil Svennson",
-            Email = "bertil@bertil.com",
-            Address = "Testvägen 12b, 70222 Stockholm",
-            PostCode = 12345,
-            Company = "Nyckelfabriken",
-            Slogan = "Vi gör bättre nycklar",
-
-        };
-
-        Person person3 = new()
-        {
-            Id = 3,
-            Name = "Cecilia Larsson",
-            Email = "cecilia@cecilia.com",
-            Address = "Testvägen 13b, 70223 Stockholm",
-            PostCode = 12345,
-            Company = "Tröjfabriken",
-            Slogan = "Vi gör bättre tröjor",
-        };
-
-        Person person4 = new()
-        {
-            Id = 4,
-            Name = "David Davidsson",
-            Email = "david@david.com",
-            Address = "Testvägen 14b, 70224 Stockholm",
-            PostCode = 12345,
-            Company = "Cykelfabriken",
-            Slogan = "Vi gör bättre cyklar",
-        };
-
-        Person person5 = new()
-        {
-            Id = 5,
-            Name = "Elin Elinsson",
-            Email = "elin@elin.com",
-            Address = "Testvägen 15b, 70225 Stockholm",
-            PostCode = 12345,
-            Company = "Bokfabriken",
-            Slogan = "Vi gör bättre böcker",
-        };
-
-        Person person6 = new()
-        {
-            Id = 6,
-            Name = "Fredrik Fredirksson",
-            Email = "fredrik@fredrik.com",
-            Address = "Testvägen 16b, 70226 Stockholm",
-            PostCode = 12345,
-            Company = "Lampfabriken",
-            Slogan = "Vi gör bättre lampor",
-        };
-
-        Person person7 = new()
-        {
-            Id = 7,
-            Name = "Greta Svensson",
-            Email = "greta@greta.com",
-            Address = "Testvägen 17b, 70227 Stockholm",
-            PostCode = 12345,
-            Company = "Stolfabriken",
-            Slogan = "Vi gör bättre stolar",
-        };
-
-        Person person8 = new()
-        {
-            Id = 8,
-            Name = "Henrik Henriksson",
-            Email = "henrik@henrik.com",
-            Address = "Testvägen 18b, 70228 Stockholm",
-            PostCode = 12345,
-            Company = "Bordfabriken",
-            Slogan = "Vi gör bättre bord",
-        };
-
-        Person person9 = new Person
-        {
-            Id = 9,
-            Name = "Isabella Jönsson",
-            Email = "isabella@isabella.com",
-            Address = "Testvägen 19b, 70229 Stockholm",
-            PostCode = 12345,
-            Company = "Väskfabriken",
-            Slogan = "Vi gör bättre väskor",
-        };
-
-        Person person10 = new Person
-        {
-            Id = 10,
-            Name = "Johan Karlsson",
-            Email = "johan@johan.com",
-            Address = "Testvägen 20b, 70230 Stockholm",
-            PostCode = 12345,
-            Company = "Mössfabriken",
-            Slogan = "Vi gör bättre mössor",
-        };
     }
 }

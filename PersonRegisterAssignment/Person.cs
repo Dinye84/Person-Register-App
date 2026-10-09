@@ -23,40 +23,16 @@ namespace PersonRegisterAssignment
             get { return _email; } 
             set { _email = value; } 
         }
-        private string _address = "-";
-        public string Address 
-        { 
-            get { return _address; } 
-            set { _address = value; } 
-        }
-        private int _postCode = 0;
-        public int PostCode
-        {
-            get { return _postCode; }
-            set { _postCode = value; }
-        }
-        private string _company = "-";
-        public string Company 
-        { 
-            get { return _company; } 
-            set { _company = value; } 
-        }
-        private string _slogan = "-";
-        public string Slogan 
-        { 
-            get { return _slogan; } 
-            set { _slogan = value; } 
-        }
+        public Address Address { get; set; } = new();
+        public Company Company { get; set; } = new();
+       
 
         public Person()
         {
-            _id = Id;
-            _name = Name;
-            _email = Email;
-            _address = Address;
-            _postCode = PostCode;
-            _company = Company;
-            _slogan = Slogan;
+            Id = _id;
+            Name = _name;
+            Email = _email;
+           
         }
 
         /// <summary>
@@ -69,12 +45,13 @@ namespace PersonRegisterAssignment
         {
             //External data sources will be set here.
             HardcodedPeopleData hardcodedPeopleData = new();
-            
-            List<Person> combinedPeopleDataList = hardcodedPeopleData.hardcodedPeopleDataList;
+            List<Person> combinedPeople = hardcodedPeopleData.hardcodedPeopleDataList;
             
 
-            return combinedPeopleDataList;
+            return combinedPeople;
         }
+
+        //public static List<Person> GetExternalDataSource()
   
     }
 }

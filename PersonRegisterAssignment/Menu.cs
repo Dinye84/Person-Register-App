@@ -1,64 +1,100 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace PersonRegisterAssignment
 {
-    internal class Menu
+    public class Menu
     {
+        private int _menuChoice = 0;
+        public int MenuChoice
+        {
+            get { return _menuChoice; }
+            set { _menuChoice = value; }
+        }
 
+        public Menu(int menuChoice)
+        {
+            _menuChoice = MenuChoice;
+            
+        }
+        
 
-        //1.    Fråga efter menyalternativ
-        //2.    Användaren väljer ett alternativ
-        //3A.   Användaren fyller i en siffra -> Trycatch, visa felmeddelande,
-        //3B    Användaren fyller i en bokstav eller annan ogiltigt tecken -> vidare till X
-        //4.    Register visas.
-        //5.    Menyn visas igen.
-        //6.    Avsluta programmet.
         public static void DisplayMenu()
         {
-            Console.WriteLine("Select menu choice 1-6");
-            bool successfulParse = int.TryParse(Console.ReadLine(), out int menuChoice);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintFunctions.GetBanner();
+            Console.WriteLine($"Find your local LOTR supplier\r\n\r\n");
 
-            //try
-            //{ 
-            //    bool successfulParse = int.TryParse(Console.ReadLine(), out int menuChoice);
-            //}
-            //catch ()
+            int menuOption = 0;
+            while (menuOption <= 6)
+            {
+                PrintFunctions.GetMenu();
 
+                bool successfulParse = int.TryParse(Console.ReadLine(), out menuOption);
 
-            
-
-            //while (successfulParse)
-            //{
-                switch (menuChoice)
+                int choice = 0;
+                Menu menu;
+                //Perhaps catch errors instead of just using case 6 as message?
+                switch (menuOption)
                 {
-
                     case 1:
-                        Console.WriteLine("Display all people by ID, ascending order");
-                        List<Person> combinedPeopleDataList = Person.GetPeople();
-                        RegisterFunctions.PrintInfo(combinedPeopleDataList);
-                    break;
+ 
+                        menu = new Menu(choice);
+                        var peopleNameAscending = RegisterFunctions.SortByNameAscending();
+                        PrintFunctions.PrintInfo(peopleNameAscending);
+                        
+
+                        //JsonSerializerOptions options = new()
+                        //{
+                        //    WriteIndented = true
+                        //};
+                        //string json = JsonSerializer.Serialize(peopleByName, options);
+                        //File.WriteAllText("person.json", json);
+
+                        break;
                     case 2:
-                        Console.WriteLine("Display first five people by ID, ascending order");
+
+                        menu = new Menu(choice);
+                        var peopleId = RegisterFunctions.SortByIdAscending();
+                        PrintFunctions.PrintInfo(peopleId);
                         break;
                     case 3:
-                        Console.WriteLine("Display all people by name, ascending order");
+                        menu = new Menu(choice);
+                        var firstFiveByName = RegisterFunctions.SortFirstFiveByNameAscending();
+                        PrintFunctions.PrintInfo(firstFiveByName);
                         break;
                     case 4:
-                        Console.WriteLine("Display first five people by name, ascending order");
+                        menu = new Menu(choice);
+                        var firstFivePeopleÍd = RegisterFunctions.SortFirstFiveByIdAscending();
+                        PrintFunctions.PrintInfo(firstFivePeopleÍd);
                         break;
                     case 5:
-                        Console.WriteLine("Search for people");
+                        menu = new Menu(choice);
+                        var peopleByKeyword = RegisterFunctions.FilterByKeyword();
+                        PrintFunctions.PrintInfo(peopleByKeyword);
                         break;
+
                     case 6:
-                        Console.WriteLine("Quitting program");
+                        menu = new Menu(choice);
+                        RegisterFunctions.QuitApplication();
                         break;
-                //}
+
+                    default:
+                        menu = new Menu(choice);
+                        break;
+
+
+
+                }
+                Console.ResetColor();
             }
 
-
         }
+
 
     }
 }
