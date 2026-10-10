@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace PersonRegisterAssignment
@@ -10,18 +11,21 @@ namespace PersonRegisterAssignment
         public static void GetMenu()
         {
             var msg = GetMessage();
-            int baseMenuOptions = 6;
-            for (int i = 0; i < baseMenuOptions; i++  )
+            int menuOptionCount = 6;
+            for (int i = 0; i < menuOptionCount; i++  )
             {
                 Console.WriteLine(msg.ElementAt(i).Value);
             }
+            Print.Message(msg["OptionSelector"]);
         }
+
+
         
         public static Dictionary<string, string> GetMessage()
         {
             Dictionary<string, string> msg = new()
         {
-            {"AllSortedId", "(1) Display all suppliers and sort them by ID" },
+            {"AllSortedId", "\r\n(1) Display all suppliers and sort them by ID" },
             {"AllSortedName", "(2) Display all suppliers and sort them by Name" },
             {"SortIDFilterFive", "(3) Sort suppliers by ID and display first five in list." },
             {"SortNameFilterFive", "(4) Sort suppliers by Name and display first five in list." },
@@ -29,11 +33,15 @@ namespace PersonRegisterAssignment
             {"QuitApp", "(6) Go back to shire (Quit application)." },
             {"ErrorMsg1", "Error. Please select an option between 1-6." },
             {"ErrorMsg2", "Error. Please try again." },
-            {"Title", $"Find your local LOTR supplier\r\n\r\n" },
-            {"Divider", "******************************" }
+            {"Title", $"Find your local LOTR supplier\r\n"},
+            {"Divider", "******************************" },
+            {"OptionSelector", "\r\nWrite an option and press enter:" }
+            
         };
 
-            return msg;  
+            return msg;
+            
+            
         }
         public static void PrintInfo(Menu menu)
         {
@@ -80,7 +88,7 @@ namespace PersonRegisterAssignment
                     $"{combinedPeopleList[i].Address.PostCode,-15}" +
                     $"{combinedPeopleList[i].Address.City,-20}" +
                     $"{combinedPeopleList[i].Company.CompanyName,-30}" +
-                    $"{combinedPeopleList[i].Company.Slogan,-50}\r"
+                    $"{combinedPeopleList[i].Company.Slogan,-50}"
                     );
         }
 

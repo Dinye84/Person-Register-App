@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using PersonRegisterAssignment;
+
 
 namespace PersonRegisterAssignment
 {
@@ -22,12 +24,15 @@ namespace PersonRegisterAssignment
             
         }
         
-
+        //FORTSÄTT ATT KOLLA PÅ VARFÖR DET BLIR VIT TEXT EFTER ATT LISTAN PRINTATS.
+        //FORTSÄTT KOLLA PÅ CHECKLISTAN
+        //KOLLA OM DET GÅR ATT MINSKA MER MÄNGDEN KOD
         public static void DisplayMenu()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
+            var msg = PrintFunctions.GetMessage();
             PrintFunctions.GetBanner();
-            Console.WriteLine($"Find your local LOTR supplier\r\n\r\n");
+            Print.Message(msg["Title"]);
 
             int menuOption = 0;
             while (menuOption <= 6)
@@ -38,6 +43,9 @@ namespace PersonRegisterAssignment
 
                 int choice = 0;
                 Menu menu;
+                
+               
+                
                 //Perhaps catch errors instead of just using case 6 as message?
                 switch (menuOption)
                 {
@@ -58,6 +66,7 @@ namespace PersonRegisterAssignment
                         break;
                     case 2:
 
+                        
                         menu = new Menu(choice);
                         var peopleId = RegisterFunctions.SortByIdAscending();
                         PrintFunctions.PrintInfo(peopleId);

@@ -4,9 +4,10 @@
 
 //namespace PersonRegisterAssignment
 //{
-//    internal interface IPeopleDataSources
+//    public interface IPeopleDataSources
 //    {
 
+        
 
 //    }
 //}
