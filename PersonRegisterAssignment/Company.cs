@@ -18,7 +18,6 @@ namespace PersonRegisterAssignment
             get { return _slogan; }
             set { _slogan = value; }
         }
-
         public Company()
         {
             CompanyName = _companyName;

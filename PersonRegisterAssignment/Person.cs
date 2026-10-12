@@ -25,34 +25,20 @@ namespace PersonRegisterAssignment
         }
         public Address Address { get; set; } = new();
         public Company Company { get; set; } = new();
-       
-
         public Person()
         {
             Id = _id;
             Name = _name;
             Email = _email;
-           
         }
-
-        /// <summary>
-        /// Combines several data sources and combines them to one list
-        /// </summary>
-
-
-
         public static List<Person> GetPeople()
         {
             //External data sources will be set here.
-            HardcodedPeopleData hardcodedPeopleData = new();
-            List<Person> combinedPeople = hardcodedPeopleData.hardcodedPeopleDataList;
+            HardcodedPeopleData hardcodedPeople = new();
+            List<Person> people = hardcodedPeople.hardcodedPeople;
             
-
-            return combinedPeople;
+            return people;
         }
-
-        //public static List<Person> GetExternalDataSource()
-  
     }
 }
 

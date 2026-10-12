@@ -27,14 +27,11 @@ namespace PersonRegisterAssignment
             get { return _city; }
             set { _city = value; }
         }
-
         public Address()
         {
-
             Street = _street;
             PostCode = _postCode;
             City = _city;
-
         }
     }
 }

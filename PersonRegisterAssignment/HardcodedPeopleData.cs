@@ -7,11 +7,10 @@ namespace PersonRegisterAssignment
 {
     public class HardcodedPeopleData
     {
-        public List<Person> hardcodedPeopleDataList = new List<Person>();
-
+        public List<Person> hardcodedPeople = [];
         public HardcodedPeopleData()
         {
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 7,
                 Name = "Gandalf the Grey",
@@ -29,7 +28,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 3,
                 Name = "Legolas Greenleaf",
@@ -47,7 +46,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 10,
                 Name = "Samwise Gamgee",
@@ -65,7 +64,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 1,
                 Name = "Aragorn Elessar",
@@ -83,7 +82,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 8,
                 Name = "Gimli, Son of Glóin",
@@ -101,7 +100,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 5,
                 Name = "Frodo Baggins",
@@ -119,7 +118,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 2,
                 Name = "Éowyn of Rohan",
@@ -137,7 +136,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 9,
                 Name = "Bilbo Baggins",
@@ -155,7 +154,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 4,
                 Name = "Arwen Undómiel",
@@ -173,7 +172,7 @@ namespace PersonRegisterAssignment
                 }
             });
 
-            hardcodedPeopleDataList.Add(new()
+            hardcodedPeople.Add(new()
             {
                 Id = 6,
                 Name = "Peregrin Took",

@@ -6,67 +6,49 @@ using System.Text;
 
 namespace PersonRegisterAssignment
 {
+    /// <summary>
+    /// PrintFunctions() represents functions which controls printing information
+    /// to console.
+    /// </summary>
     public class PrintFunctions
     {
-        public static void GetMenu()
+        public static void PrintMenuOptions()
         {
-            var msg = GetMessage();
-            int menuOptionCount = 6;
-            for (int i = 0; i < menuOptionCount; i++  )
-            {
-                Console.WriteLine(msg.ElementAt(i).Value);
-            }
-            Print.Message(msg["OptionSelector"]);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("*** Menu ***");
+            Console.WriteLine("\n(1) Display all suppliers and sort them by name");
+            Console.WriteLine("(2) Display all suppliers and sort them by ID");
+            Console.WriteLine("(3) Sort suppliers by name and display first five in list.");
+            Console.WriteLine("(4) Sort suppliers by ID and display first five in list.");
+            Console.WriteLine("(5) Search suppliers name by keyword.");
+            Console.WriteLine("(6) Go back to shire (Quit application).");
+            Console.Write($"\nEnter an option and press enter to continue: ");
         }
-
-
-        
-        public static Dictionary<string, string> GetMessage()
+       
+        /// <summary>
+        /// PrintPersonInfo() assembles headers, lists and prints them to console.
+        /// </summary>
+        public static void PrintPeople( List<Person> people, int menuChoice)
         {
-            Dictionary<string, string> msg = new()
-        {
-            {"AllSortedId", "\r\n(1) Display all suppliers and sort them by ID" },
-            {"AllSortedName", "(2) Display all suppliers and sort them by Name" },
-            {"SortIDFilterFive", "(3) Sort suppliers by ID and display first five in list." },
-            {"SortNameFilterFive", "(4) Sort suppliers by Name and display first five in list." },
-            {"SearchKeyword", "(5) Search for suppliers by keyword." },
-            {"QuitApp", "(6) Go back to shire (Quit application)." },
-            {"ErrorMsg1", "Error. Please select an option between 1-6." },
-            {"ErrorMsg2", "Error. Please try again." },
-            {"Title", $"Find your local LOTR supplier\r\n"},
-            {"Divider", "******************************" },
-            {"OptionSelector", "\r\nWrite an option and press enter:" }
-            
-        };
-
-            return msg;
-            
-            
-        }
-        public static void PrintInfo(Menu menu)
-        {
-            var msg = GetMessage();
-            int menuChoice = menu.MenuChoice;
-            string message = menuChoice switch
+            //Header
+            int x = menuChoice;
+            string menuMessage = menuChoice switch
             {
-                1 => msg["AllSortedId"],
-                2 => msg["AllSortedName"],
-                3 => msg["SortIDFilterFive"],
-                4 => msg["SortNameFilterFive"],
-                5 => msg["SearchKeyword"],
-                6 => msg["QuitApp"],
-                7 => msg["ErrorMsg1"],
-                _ => msg["ErrorMsg2"]
+               1 => "\nSorting by name displaying all suppliers.\n",
+               2 => "\nSorting by ID displaying all suppliers.\n",
+               3 => "\nSorting by name filtering first five suppliers.\n",
+               4 => "\nSorting by ID filtering first five suppliers.\n",
+               _ => string.Empty
             };
+            //FORTSÄTT HÄR. KOLLA VARFÖR MENU CHOICE NUMMER SKRIVS UT EFTER AT MAN SKRIVIT IN KEYWORD I FRITEXTSÖKNING
+            Console.WriteLine(menuMessage);
 
-            Console.WriteLine(message);
-        }
-
-        public static void PrintInfo(List<Person> combinedPeopleList)
-        {
-            //List header
-            Console.WriteLine(
-                "\r\n" +
+            //Person data
+            var peopleCount = people.Count;
+            if (peopleCount > 0)
+            {
+                Console.WriteLine(
+                
                 $"{"ID",-5}" +
                 $"{"Name",-25}" +
                 $"{"E-mail",-30}" +
@@ -75,26 +57,32 @@ namespace PersonRegisterAssignment
                 $"{"City",-20}" +
                 $"{"Business name",-30}" +
                 $"{"Slogan",-50}" +
-                "\r\n"
+                "\n"
                 );
 
-            for (
-                int i = 0; i < combinedPeopleList.Count; i++)
-                Console.WriteLine(
-                    $"{combinedPeopleList[i].Id,-5}" +
-                    $"{combinedPeopleList[i].Name,-25}" +
-                    $"{combinedPeopleList[i].Email,-30}" +
-                    $"{combinedPeopleList[i].Address.Street,-25}" +
-                    $"{combinedPeopleList[i].Address.PostCode,-15}" +
-                    $"{combinedPeopleList[i].Address.City,-20}" +
-                    $"{combinedPeopleList[i].Company.CompanyName,-30}" +
-                    $"{combinedPeopleList[i].Company.Slogan,-50}"
-                    );
-        }
+                for (int i = 0; i < people.Count; i++)
+                    Console.WriteLine(
+                        $"{people[i].Id,-5}" +
+                        $"{people[i].Name,-25}" +
+                        $"{people[i].Email,-30}" +
+                        $"{people[i].Address.Street,-25}" +
+                        $"{people[i].Address.PostCode,-15}" +
+                        $"{people[i].Address.City,-20}" +
+                        $"{people[i].Company.CompanyName,-30}" +
+                        $"{people[i].Company.Slogan,-50}"
+                        );
+                Console.WriteLine("\n");
+            }
 
-        public static void GetBanner()
+            if (peopleCount == 0 && menuChoice <= 6)
+            {
+                Console.WriteLine("* No result found, please try again.\n");
+            }
+        }
+        public static void PrintBanner()
         {
-            Console.WriteLine("\r\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n");
             Console.WriteLine(
 
 """"
@@ -113,8 +101,9 @@ namespace PersonRegisterAssignment
   $$$b.____.dP                                 $ .$. .$.$ss,d$$$b.   T$b.
 .d$$$$$$$$$$P                                                         `T$b.                                                                      
 """" + 
-"\r\n\r\n"
+"\n\n"
 );
+            Console.WriteLine("Find your local LOTR supplier\n");
 
         }
     }

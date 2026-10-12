@@ -1,109 +1,84 @@
-﻿using System;
+﻿using PersonRegisterAssignment;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using PersonRegisterAssignment;
-
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonRegisterAssignment
 {
     public class Menu
     {
-        private int _menuChoice = 0;
-        public int MenuChoice
+        public static void GetMenu()
         {
-            get { return _menuChoice; }
-            set { _menuChoice = value; }
-        }
-
-        public Menu(int menuChoice)
-        {
-            _menuChoice = MenuChoice;
-            
-        }
-        
-        //FORTSÄTT ATT KOLLA PÅ VARFÖR DET BLIR VIT TEXT EFTER ATT LISTAN PRINTATS.
-        //FORTSÄTT KOLLA PÅ CHECKLISTAN
-        //KOLLA OM DET GÅR ATT MINSKA MER MÄNGDEN KOD
-        public static void DisplayMenu()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            var msg = PrintFunctions.GetMessage();
-            PrintFunctions.GetBanner();
-            Print.Message(msg["Title"]);
-
-            int menuOption = 0;
-            while (menuOption <= 6)
+ 
+            while (true)
             {
-                PrintFunctions.GetMenu();
+                PrintFunctions.PrintMenuOptions();
 
-                bool successfulParse = int.TryParse(Console.ReadLine(), out menuOption);
+                string? menuSelectionInput = Console.ReadLine();
+                bool isParseSuccessful = int.TryParse(menuSelectionInput, out int menuSelection);
 
-                int choice = 0;
-                Menu menu;
-                
-               
-                
-                //Perhaps catch errors instead of just using case 6 as message?
-                switch (menuOption)
+                if (isParseSuccessful == false)
+                {
+                    Console.WriteLine("\n[Invalid input.Please enter a number between 1 and 6.]\n");
+                    continue;
+                }
+
+                var people = new List<Person>();
+
+                switch (menuSelection)
                 {
                     case 1:
- 
-                        menu = new Menu(choice);
-                        var peopleNameAscending = RegisterFunctions.SortByNameAscending();
-                        PrintFunctions.PrintInfo(peopleNameAscending);
-                        
-
-                        //JsonSerializerOptions options = new()
-                        //{
-                        //    WriteIndented = true
-                        //};
-                        //string json = JsonSerializer.Serialize(peopleByName, options);
-                        //File.WriteAllText("person.json", json);
-
+                        people = RegisterFunctions.SortByNameAscending();
                         break;
+
                     case 2:
+                        people = RegisterFunctions.SortByIdAscending();
+                        break;
 
-                        
-                        menu = new Menu(choice);
-                        var peopleId = RegisterFunctions.SortByIdAscending();
-                        PrintFunctions.PrintInfo(peopleId);
-                        break;
                     case 3:
-                        menu = new Menu(choice);
-                        var firstFiveByName = RegisterFunctions.SortFirstFiveByNameAscending();
-                        PrintFunctions.PrintInfo(firstFiveByName);
+                        people = RegisterFunctions.SortFirstFiveByNameAscending();
                         break;
+
                     case 4:
-                        menu = new Menu(choice);
-                        var firstFivePeopleÍd = RegisterFunctions.SortFirstFiveByIdAscending();
-                        PrintFunctions.PrintInfo(firstFivePeopleÍd);
+                        people = RegisterFunctions.SortFirstFiveByIdAscending();
                         break;
+
                     case 5:
-                        menu = new Menu(choice);
-                        var peopleByKeyword = RegisterFunctions.FilterByKeyword();
-                        PrintFunctions.PrintInfo(peopleByKeyword);
+
+                        while (true)
+                        {
+                            Console.Write("\nEnter keyword: ");
+                            string keywordInput = Console.ReadLine() ?? "";
+                            var isKeywordNullOrWhiteSpace = string.IsNullOrWhiteSpace(keywordInput);
+
+                            if (isKeywordNullOrWhiteSpace == true)
+                            {
+                                Console.WriteLine("\nYour keyword is null or empty, please try again!");
+                            }
+                            else
+                            {
+                                people = RegisterFunctions.FilterByKeyword(keywordInput);
+                                break;
+                            }
+                        } 
                         break;
 
                     case 6:
-                        menu = new Menu(choice);
                         RegisterFunctions.QuitApplication();
-                        break;
+                        return;
 
                     default:
-                        menu = new Menu(choice);
+                        Console.WriteLine("\nInvalid input.Please enter a number between 1 and 6.");
                         break;
-
-
-
                 }
-                Console.ResetColor();
+
+                PrintFunctions.PrintPeople(people, menuSelection);
             }
-
         }
-
-
     }
 }
