@@ -5,10 +5,18 @@ using System.Text;
 
 namespace PersonRegisterAssignment
 {
-    public class HardcodedPeopleData
+    internal class HardcodedPeopleData : IPeopleDataSources
     {
+        public List<Person> GetPeople()
+        {
+            //External data sources will be set here.
+            HardcodedPeopleData hardcodedPeople = new();
+            List<Person> people = hardcodedPeople.hardcodedPeople;
+
+            return people;
+        }
         public List<Person> hardcodedPeople = [];
-        public HardcodedPeopleData()
+        internal HardcodedPeopleData()
         {
             hardcodedPeople.Add(new()
             {

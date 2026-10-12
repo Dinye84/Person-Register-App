@@ -10,9 +10,9 @@ namespace PersonRegisterAssignment
     /// PrintFunctions() represents functions which controls printing information
     /// to console.
     /// </summary>
-    public class PrintFunctions
+    internal class PrintFunctions
     {
-        public static void PrintMenuOptions()
+        internal static void PrintMenuOptions()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("*** Menu ***");
@@ -79,7 +79,7 @@ namespace PersonRegisterAssignment
                 Console.WriteLine("* No result found, please try again.\n");
             }
         }
-        public static void PrintBanner()
+        internal static void PrintBanner()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n");

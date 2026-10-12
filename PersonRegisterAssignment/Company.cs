@@ -4,21 +4,21 @@ using System.Text;
 
 namespace PersonRegisterAssignment
 {
-    public class Company
+    internal class Company
     {
         private string _companyName = "-";
-        public string CompanyName
+        internal string CompanyName
         {
             get { return _companyName; }
             set { _companyName = value; }
         }
         private string _slogan = "-";
-        public string Slogan
+        internal string Slogan
         {
             get { return _slogan; }
             set { _slogan = value; }
         }
-        public Company()
+        internal Company()
         {
             CompanyName = _companyName;
             Slogan = _slogan;

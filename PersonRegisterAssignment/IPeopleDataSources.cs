@@ -1,13 +1,13 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-//namespace PersonRegisterAssignment
-//{
-//    public interface IPeopleDataSources
-//    {
+namespace PersonRegisterAssignment
+{
+    internal interface IPeopleDataSources
+    {
+        List<Person> GetPeople();
 
-        
 
-//    }
-//}
+    }
+} 

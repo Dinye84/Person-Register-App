@@ -10,9 +10,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonRegisterAssignment
 {
-    public class Menu
+    internal class Menu
     {
-        public static void GetMenu()
+        internal static void GetMenu()
         {
  
             while (true)

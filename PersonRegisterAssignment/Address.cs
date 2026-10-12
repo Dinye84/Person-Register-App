@@ -6,28 +6,28 @@ using System.Xml.Linq;
 
 namespace PersonRegisterAssignment
 {
-    public class Address
+    internal class Address
     {
         private string _street = "";
-        public string Street
+        internal string Street
         {
             get { return _street; }
             set { _street = value; }
         }
         private int _postCode = 0;
-        public int PostCode
+        internal int PostCode
         {
             get { return _postCode; }
             set { _postCode = value; }
         }
 
         private string _city = "";
-        public string City
+        internal string City
         {
             get { return _city; }
             set { _city = value; }
         }
-        public Address()
+        internal Address()
         {
             Street = _street;
             PostCode = _postCode;
