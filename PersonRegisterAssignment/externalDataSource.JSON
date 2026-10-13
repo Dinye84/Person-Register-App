@@ -1,0 +1,146 @@
+
+/*JSON structure is manually created, 
+characters are AI-generated, for transparency*/
+
+[
+  {
+    "Id": 14,
+    "Name": "Sauron the Dark Lord",
+    "Email": "sauron@mordor.me",
+    "Address": {
+      "Street": "Barad-dûr Tower 1",
+      "PostCode": 90001,
+      "City": "Mordor"
+    },
+    "Company": {
+      "CompanyName": "One Ring Industries",
+      "Slogan": "One product to rule them all."
+    }
+  },
+  {
+    "Id": 19,
+    "Name": "Gríma Wormtongue",
+    "Email": "grima@isengard.me",
+    "Address": {
+      "Street": "Golden Hall 13",
+      "PostCode": 60018,
+      "City": "Edoras"
+    },
+    "Company": {
+      "CompanyName": "Wormtongue Public Relations",
+      "Slogan": "Your opinion. Our words."
+    }
+  },
+  {
+    "Id": 12,
+    "Name": "Saruman the White",
+    "Email": "saruman@isengard.me",
+    "Address": {
+      "Street": "Orthanc Tower 1",
+      "PostCode": 80001,
+      "City": "Isengard"
+    },
+    "Company": {
+      "CompanyName": "Saruman's Industrial Solutions",
+      "Slogan": "Turning forests into progress since the Third Age."
+    }
+  },
+  {
+    "Id": 20,
+    "Name": "Gollum Sméagol",
+    "Email": "gollum@mistymountains.me",
+    "Address": {
+      "Street": "Underground Passage 7",
+      "PostCode": 40115,
+      "City": "Misty Mountains"
+    },
+    "Company": {
+      "CompanyName": "Precious Asset Management",
+      "Slogan": "We keep your valuables forever. No refundses."
+    }
+  },
+  {
+    "Id": 16,
+    "Name": "Witch-king of Angmar",
+    "Email": "witchking@minasmorgul.me",
+    "Address": {
+      "Street": "Morgul Vale 9",
+      "PostCode": 91001,
+      "City": "Minas Morgul"
+    },
+    "Company": {
+      "CompanyName": "Nine Riders Security",
+      "Slogan": "No man can stop us. Terms and conditions apply."
+    }
+  },
+  {
+    "Id": 11,
+    "Name": "Azog the Defiler",
+    "Email": "azog@moria.me",
+    "Address": {
+      "Street": "East Gate 66",
+      "PostCode": 40210,
+      "City": "Moria"
+    },
+    "Company": {
+      "CompanyName": "Azog's Demolition Services",
+      "Slogan": "We don't renovate. We eradicate."
+    }
+  },
+  {
+    "Id": 18,
+    "Name": "Shelob the Great",
+    "Email": "shelob@cirithungol.me",
+    "Address": {
+      "Street": "Spider Pass 8",
+      "PostCode": 92008,
+      "City": "Cirith Ungol"
+    },
+    "Company": {
+      "CompanyName": "Shelob Web Solutions",
+      "Slogan": "Once you're in our web, you'll never leave."
+    }
+  },
+  {
+    "Id": 13,
+    "Name": "Mouth of Sauron",
+    "Email": "mouth@blackgate.me",
+    "Address": {
+      "Street": "Black Gate Plaza 5",
+      "PostCode": 90005,
+      "City": "Morannon"
+    },
+    "Company": {
+      "CompanyName": "Mordor Communications",
+      "Slogan": "We speak for you. Whether you like it or not."
+    }
+  },
+  {
+    "Id": 17,
+    "Name": "Uglúk of Isengard",
+    "Email": "ugluk@isengard.me",
+    "Address": {
+      "Street": "Uruk-hai Barracks 21",
+      "PostCode": 80021,
+      "City": "Isengard"
+    },
+    "Company": {
+      "CompanyName": "Uruk Express Logistics",
+      "Slogan": "Fast delivery. No breaks. No questions."
+    }
+  },
+  {
+    "Id": 15,
+    "Name": "Bolg of Gundabad",
+    "Email": "bolg@gundabad.me",
+    "Address": {
+      "Street": "War Council Road 4",
+      "PostCode": 40304,
+      "City": "Mount Gundabad"
+    },
+    "Company": {
+      "CompanyName": "Gundabad Recruitment Agency",
+      "Slogan": "Building armies. Destroying career expectations."
+    }
+  }
+]

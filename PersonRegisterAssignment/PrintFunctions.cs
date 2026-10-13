@@ -1,13 +1,11 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace PersonRegisterAssignment
 {
     /// <summary>
-    /// PrintFunctions() represents functions which controls printing information
+    /// PrintMenuOptions() represents functions which controls printing information
     /// to console.
     /// </summary>
     internal class PrintFunctions
@@ -24,14 +22,12 @@ namespace PersonRegisterAssignment
             Console.WriteLine("(6) Go back to shire (Quit application).");
             Console.Write($"\nEnter an option and press enter to continue: ");
         }
-       
+
         /// <summary>
-        /// PrintPersonInfo() assembles headers, lists and prints them to console.
+        /// PrintPeople() structures headers, lists and other messages and prints them to console.
         /// </summary>
         public static void PrintPeople( List<Person> people, int menuChoice)
         {
-            //Header
-            int x = menuChoice;
             string menuMessage = menuChoice switch
             {
                1 => "\nSorting by name displaying all suppliers.\n",
@@ -40,10 +36,8 @@ namespace PersonRegisterAssignment
                4 => "\nSorting by ID filtering first five suppliers.\n",
                _ => string.Empty
             };
-            //FORTSÄTT HÄR. KOLLA VARFÖR MENU CHOICE NUMMER SKRIVS UT EFTER AT MAN SKRIVIT IN KEYWORD I FRITEXTSÖKNING
             Console.WriteLine(menuMessage);
 
-            //Person data
             var peopleCount = people.Count;
             if (peopleCount > 0)
             {
@@ -57,8 +51,7 @@ namespace PersonRegisterAssignment
                 $"{"City",-20}" +
                 $"{"Business name",-30}" +
                 $"{"Slogan",-50}" +
-                "\n"
-                );
+                "\n");
 
                 for (int i = 0; i < people.Count; i++)
                     Console.WriteLine(
@@ -69,8 +62,8 @@ namespace PersonRegisterAssignment
                         $"{people[i].Address.PostCode,-15}" +
                         $"{people[i].Address.City,-20}" +
                         $"{people[i].Company.CompanyName,-30}" +
-                        $"{people[i].Company.Slogan,-50}"
-                        );
+                        $"{people[i].Company.Slogan,-50}");
+
                 Console.WriteLine("\n");
             }
 
@@ -104,7 +97,6 @@ namespace PersonRegisterAssignment
 "\n\n"
 );
             Console.WriteLine("Find your local LOTR supplier\n");
-
         }
     }
 }

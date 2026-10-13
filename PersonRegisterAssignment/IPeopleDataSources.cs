@@ -7,7 +7,5 @@ namespace PersonRegisterAssignment
     internal interface IPeopleDataSources
     {
         List<Person> GetPeople();
-
-
     }
 } 

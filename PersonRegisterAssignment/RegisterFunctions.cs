@@ -5,49 +5,50 @@ using System.Text;
 using System.Linq;
 using System.Globalization;
 using System.Runtime.Serialization;
-using System.Security.Cryptography.X509Certificates;
 
 namespace PersonRegisterAssignment
 {
     internal class RegisterFunctions
     {
-        private static IPeopleDataSources dataSource = new HardcodedPeopleData();
+        private static IPeopleDataSources _dataSource = new HardcodedPeopleData();
         internal static List<Person> SortByNameAscending()
         {
-            var  people = dataSource.GetPeople();
+            var  people = _dataSource.GetPeople();
             var sortedPeople = people.OrderBy(person => person.Name).ToList();
             return sortedPeople;
         }
 
         internal static List<Person> SortByIdAscending()
         {
-            var people = dataSource.GetPeople();
+            var people = _dataSource.GetPeople();
             var sortedPeople = people.OrderBy(person => person.Id).ToList();
             return sortedPeople;
         }
         internal static List<Person> SortFirstFiveByNameAscending()
         {
-            var people = dataSource.GetPeople();
+            var people = _dataSource.GetPeople();
             var sortedPeople = people.OrderBy(person => person.Name).Take(5).ToList();
             return sortedPeople;
         }
         internal static List<Person> SortFirstFiveByIdAscending()
         {
-            var people = dataSource.GetPeople();
+            var people = _dataSource.GetPeople();
             var sortedPeople = people.OrderBy(person => person.Id).Take(5).ToList();
             return sortedPeople;
         }
         internal static List<Person> FilterByKeyword(string searchKeyword)
         {
             var culture = new CultureInfo("en-GB");
-            var people = dataSource.GetPeople();
+            var people = _dataSource.GetPeople();
             var sortedPeople
-                = people.Where(person => culture.CompareInfo.IndexOf(person.Name, searchKeyword, CompareOptions.IgnoreCase) >= 0).OrderBy(person => person.Id).ToList();
-            var peopleCount = sortedPeople.Count;
+                = people.Where(
+                    person => culture.CompareInfo
+                    .IndexOf(person.Name, searchKeyword, CompareOptions.IgnoreCase) >= 0)
+                    .OrderBy(person => person.Id)
+                    .ToList();
 
             return sortedPeople; 
         }
-
         internal static void QuitApplication()
         {
             Console.WriteLine("\nClosing application.\n");

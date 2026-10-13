@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -24,7 +23,7 @@ namespace PersonRegisterAssignment
 
                 if (isParseSuccessful == false)
                 {
-                    Console.WriteLine("\n[Invalid input.Please enter a number between 1 and 6.]\n");
+                    Console.WriteLine("\n[Invalid input.Please only use numbers between 1-6.]\n");
                     continue;
                 }
 
@@ -73,8 +72,8 @@ namespace PersonRegisterAssignment
                         return;
 
                     default:
-                        Console.WriteLine("\nInvalid input.Please enter a number between 1 and 6.");
-                        break;
+                        Console.WriteLine("\n[Invalid input. Please enter a number between 1 and 6.]\n");
+                        continue;
                 }
 
                 PrintFunctions.PrintPeople(people, menuSelection);

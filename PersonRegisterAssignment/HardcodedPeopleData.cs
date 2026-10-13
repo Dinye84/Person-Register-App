@@ -7,18 +7,17 @@ namespace PersonRegisterAssignment
 {
     internal class HardcodedPeopleData : IPeopleDataSources
     {
+        private List<Person> _hardcodedPeople = [];
         public List<Person> GetPeople()
         {
-            //External data sources will be set here.
-            HardcodedPeopleData hardcodedPeople = new();
-            List<Person> people = hardcodedPeople.hardcodedPeople;
+            List<Person> people = _hardcodedPeople;
 
             return people;
         }
-        public List<Person> hardcodedPeople = [];
+        
         internal HardcodedPeopleData()
         {
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 7,
                 Name = "Gandalf the Grey",
@@ -34,9 +33,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Gandalf's Fireworks",
                     Slogan = "A little magic goes a long way."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 3,
                 Name = "Legolas Greenleaf",
@@ -52,9 +52,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Greenleaf Archery",
                     Slogan = "Every arrow finds its mark."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 10,
                 Name = "Samwise Gamgee",
@@ -70,9 +71,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Sam's Gardening Services",
                     Slogan = "Helping things grow, even in the darkest places."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 1,
                 Name = "Aragorn Elessar",
@@ -88,9 +90,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Strider's Wilderness Guides",
                     Slogan = "Every journey deserves a trusted guide."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 8,
                 Name = "Gimli, Son of Glóin",
@@ -106,9 +109,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Gimli's Mining Company",
                     Slogan = "Nobody tosses a dwarf."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 5,
                 Name = "Frodo Baggins",
@@ -124,9 +128,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Frodo's Courier Service",
                     Slogan = "No delivery is too important to carry."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 2,
                 Name = "Éowyn of Rohan",
@@ -142,9 +147,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Éowyn's Riding Academy",
                     Slogan = "Ride with courage. Fear no challenge."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 9,
                 Name = "Bilbo Baggins",
@@ -160,9 +166,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Bilbo's Adventure Tours",
                     Slogan = "Your next unexpected journey starts here."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 4,
                 Name = "Arwen Undómiel",
@@ -178,9 +185,10 @@ namespace PersonRegisterAssignment
                     CompanyName = "Arwen's Fine Jewellery",
                     Slogan = "Timeless beauty, crafted to last."
                 }
-            });
+            }
+            );
 
-            hardcodedPeople.Add(new()
+            _hardcodedPeople.Add(new()
             {
                 Id = 6,
                 Name = "Peregrin Took",
@@ -196,7 +204,8 @@ namespace PersonRegisterAssignment
                     CompanyName = "Pippin's Catering",
                     Slogan = "Breakfast, second breakfast, and everything in between."
                 }
-            });
+            }
+            );
         }
     }
 }
