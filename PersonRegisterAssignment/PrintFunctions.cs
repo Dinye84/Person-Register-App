@@ -49,7 +49,7 @@ namespace PersonRegisterAssignment
                 $"{"Street",-25}" +
                 $"{"Post code",-15}" +
                 $"{"City",-20}" +
-                $"{"Business name",-30}" +
+                $"{"Company name",-35}" +
                 $"{"Slogan",-50}" +
                 "\n");
 
@@ -61,7 +61,7 @@ namespace PersonRegisterAssignment
                         $"{people[i].Address.Street,-25}" +
                         $"{people[i].Address.PostCode,-15}" +
                         $"{people[i].Address.City,-20}" +
-                        $"{people[i].Company.CompanyName,-30}" +
+                        $"{people[i].Company.CompanyName,-35}" +
                         $"{people[i].Company.Slogan,-50}");
 
                 Console.WriteLine("\n");

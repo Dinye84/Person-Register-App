@@ -1,30 +1,33 @@
 ﻿using System.Collections.Specialized;
+using System.Text.Json.Serialization;
 
 namespace PersonRegisterAssignment
 {
     internal class Person
     {
+       
+
         private int _id = 0;
-        internal int Id 
+        public int Id 
         { 
             get { return _id; } 
             set { _id = value; } 
         }
         private string _name = "-";
-        internal string Name 
+        public string Name 
         { 
             get { return _name; } 
             set { _name = value; } 
         }
         private string _email = "-";
-        internal string Email 
+        public string Email 
         { 
             get { return _email; } 
             set { _email = value; } 
         }
-        internal Address Address { get; set; } = new();
-        internal Company Company { get; set; } = new();
-        internal Person()
+        public Address Address { get; set; } = new();
+        public Company Company { get; set; } = new();
+        public Person()
         {
             Id = _id;
             Name = _name;

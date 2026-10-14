@@ -11,9 +11,10 @@ namespace PersonRegisterAssignment
 {
     internal class Menu
     {
-        internal static void GetMenu()
+        internal static void GetMenu(List<Person> peopleDataSource)
         {
- 
+            List<Person> printPeople = peopleDataSource;
+
             while (true)
             {
                 PrintFunctions.PrintMenuOptions();
@@ -27,24 +28,25 @@ namespace PersonRegisterAssignment
                     continue;
                 }
 
-                var people = new List<Person>();
+                
 
                 switch (menuSelection)
                 {
                     case 1:
-                        people = RegisterFunctions.SortByNameAscending();
+                        
+                        printPeople = RegisterFunctions.SortByNameAscending(peopleDataSource);
                         break;
 
                     case 2:
-                        people = RegisterFunctions.SortByIdAscending();
+                        printPeople = RegisterFunctions.SortByIdAscending(peopleDataSource);
                         break;
 
                     case 3:
-                        people = RegisterFunctions.SortFirstFiveByNameAscending();
+                        printPeople = RegisterFunctions.SortFirstFiveByNameAscending(peopleDataSource);
                         break;
 
                     case 4:
-                        people = RegisterFunctions.SortFirstFiveByIdAscending();
+                        printPeople = RegisterFunctions.SortFirstFiveByIdAscending(peopleDataSource);
                         break;
 
                     case 5:
@@ -61,7 +63,7 @@ namespace PersonRegisterAssignment
                             }
                             else
                             {
-                                people = RegisterFunctions.FilterByKeyword(keywordInput);
+                                printPeople = RegisterFunctions.FilterByKeyword(peopleDataSource, keywordInput);
                                 break;
                             }
                         } 
@@ -76,7 +78,7 @@ namespace PersonRegisterAssignment
                         continue;
                 }
 
-                PrintFunctions.PrintPeople(people, menuSelection);
+                PrintFunctions.PrintPeople(printPeople, menuSelection);
             }
         }
     }

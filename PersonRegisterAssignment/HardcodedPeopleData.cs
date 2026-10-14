@@ -7,14 +7,13 @@ namespace PersonRegisterAssignment
 {
     internal class HardcodedPeopleData : IPeopleDataSources
     {
-        private List<Person> _hardcodedPeople = [];
+        private readonly List<Person> _hardcodedPeople = [];
         public List<Person> GetPeople()
         {
             List<Person> people = _hardcodedPeople;
 
             return people;
         }
-        
         internal HardcodedPeopleData()
         {
             _hardcodedPeople.Add(new()
