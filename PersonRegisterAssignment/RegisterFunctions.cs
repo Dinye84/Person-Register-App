@@ -12,27 +12,39 @@ namespace PersonRegisterAssignment
 {
     internal class RegisterFunctions
     {
+        public static void PowerShellController(string argument)
+        {
+            
+            if (argument =="list")
+            {
+                List<Person> people = SelectDataSource(1);
+                var sortedPeople = SortByIdAscending(people);
+                PrintFunctions.PrintPeople(sortedPeople, 1);
+
+                if (argument[1] ==)
+            }
+            else if (argument ==)
+  
+        }
         public static List<Person> SelectDataSource(int choice)
         {
             do
             {
-
                 if (choice == 1)
                 {
                     IPeopleDataSources _dataSource = new HardcodedPeopleData();
                     var people = _dataSource.GetPeople();
+                    
                     return people;
-
                 }
 
                 else if (choice == 2)
                 {
                     IPeopleDataSources _dataSource = new ImportExternalPeople();
                     var people = _dataSource.GetPeople();
+
                     return people;
-
                 }
-
                 else
                 {
                     Console.WriteLine($"Invalid data source selection.\n" +
@@ -41,19 +53,9 @@ namespace PersonRegisterAssignment
                     Environment.Exit(0);
                 }
 
-                
-
-
-
             } while (choice != 1 | choice !=2 );
-
             return [];
-
         }
-        //public static int SelectDataSource(int selectedDataSource)
-        //{
-        //    if ()
-        //}
 
         public static List<Person> SortByNameAscending(List<Person> peopleData)
         {
