@@ -33,22 +33,19 @@ namespace PersonRegisterAssignment
                 switch (menuSelection)
                 {
                     case 1:
-                        
-                        printPeople = RegisterFunctions.SortByNameAscending(peopleDataSource);
-                        break;
 
-                    case 2:
                         printPeople = RegisterFunctions.SortByIdAscending(peopleDataSource);
                         break;
-
-                    case 3:
-                        printPeople = RegisterFunctions.SortFirstFiveByNameAscending(peopleDataSource);
-                        break;
-
-                    case 4:
+                    case 2:
                         printPeople = RegisterFunctions.SortFirstFiveByIdAscending(peopleDataSource);
                         break;
 
+                    case 3:
+                        printPeople = RegisterFunctions.SortByNameAscending(peopleDataSource);
+                        break;
+                    case 4:
+                        printPeople = RegisterFunctions.SortFirstFiveByNameAscending(peopleDataSource);
+                        break;
                     case 5:
 
                         while (true)

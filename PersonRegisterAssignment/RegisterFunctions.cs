@@ -7,24 +7,91 @@ using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Xml;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonRegisterAssignment
 {
     internal class RegisterFunctions
     {
-        public static void PowerShellController(string argument)
+
+        public static void SelectEntryPoint(string[] argument)
         {
-            
-            if (argument =="list")
+            bool argumentSent = argument.Length >= 1;
+
+            if(argumentSent)
+            {
+                PowerShellController(argument);
+            }
+        }
+        public static void PowerShellController(string[] argument)
+        {
+            bool sortByIdAscendingCommand = 
+                argument.Length == 1 &&
+                argument[0] == "list";
+
+            bool sortFirstFiveByIdCommand = 
+                argument.Length == 2 &&
+                argument[0] == "list" &&
+                argument[1] == "--top5";
+
+            bool sortByNameAscendingCommand = 
+                argument.Length == 2 &&
+                argument[0] == "list" &&
+                argument[1] == "--sort";
+
+            bool sortFirstFiveByNameCommand = 
+                argument.Length == 3 &&
+                argument[0] == "list" &&
+                argument[1] == "--sort" &&
+                argument[2] == "--top5";
+
+            bool isFilterByKeywordCommand = 
+                argument.Length >= 3 &&
+                argument[0] == "list" &&
+                argument[1] == "--search";
+
+            //Console.WriteLine(
+
+            //    $"sortByIdAscendingCommand = {sortByIdAscendingCommand}\n" +
+            //    $"sortFirstFiveByIdCommand = {sortFirstFiveByIdCommand}\n" +
+            //    $"sortByNameAscendingCommand = {sortByNameAscendingCommand}\n" +
+            //    $"sortFirstFiveByNameCommand = {sortFirstFiveByNameCommand}\n" +
+            //    $"isFilterByKeyword = {isFilterByKeyword}\n"
+            //    );
+
+            if (sortByIdAscendingCommand)
             {
                 List<Person> people = SelectDataSource(1);
-                var sortedPeople = SortByIdAscending(people);
+                var sortedPeople = RegisterFunctions.SortByIdAscending(people);
                 PrintFunctions.PrintPeople(sortedPeople, 1);
-
-                if (argument[1] ==)
             }
-            else if (argument ==)
-  
+            else if (sortFirstFiveByIdCommand)
+            {
+
+                List<Person> people = SelectDataSource(1);
+                var sortedPeople = SortFirstFiveByIdAscending(people);
+                PrintFunctions.PrintPeople(sortedPeople, 2);
+            }
+            else if (sortByNameAscendingCommand)
+            {
+                List<Person> people = SelectDataSource(1);
+                var sortedPeople = SortByNameAscending(people);
+                PrintFunctions.PrintPeople(sortedPeople, 3);
+            }
+            else if (sortFirstFiveByNameCommand)
+            {
+                List<Person> people = SelectDataSource(1);
+                var sortedPeople = SortFirstFiveByNameAscending(people);
+                PrintFunctions.PrintPeople(sortedPeople, 4);
+            }
+            else if (isFilterByKeywordCommand)
+            {
+                string searchKeyword = argument[2];
+                List<Person> people = SelectDataSource(1);
+                var sortedPeople = FilterByKeyword(people, searchKeyword);
+                PrintFunctions.PrintPeople(sortedPeople, 5);
+            }
         }
         public static List<Person> SelectDataSource(int choice)
         {
@@ -57,12 +124,7 @@ namespace PersonRegisterAssignment
             return [];
         }
 
-        public static List<Person> SortByNameAscending(List<Person> peopleData)
-        {
-            
-            var sortedPeople = peopleData.OrderBy(person => person.Name).ToList();
-            return sortedPeople;
-        }
+        
 
         internal static List<Person> SortByIdAscending(List<Person> peopleData)
         {
@@ -71,16 +133,22 @@ namespace PersonRegisterAssignment
             var sortedPeople = peopleData.OrderBy(person => person.Id).ToList();
             return sortedPeople;
         }
-        internal static List<Person> SortFirstFiveByNameAscending(List<Person> peopleData)
-        {
-            //var people = _dataSource.GetPeople();
-            var sortedPeople = peopleData.OrderBy(person => person.Name).Take(5).ToList();
-            return sortedPeople;
-        }
         internal static List<Person> SortFirstFiveByIdAscending(List<Person> peopleData)
         {
             //var people = _dataSource.GetPeople();
             var sortedPeople = peopleData.OrderBy(person => person.Id).Take(5).ToList();
+            return sortedPeople;
+        }
+        public static List<Person> SortByNameAscending(List<Person> peopleData)
+        {
+
+            var sortedPeople = peopleData.OrderBy(person => person.Name).ToList();
+            return sortedPeople;
+        }
+        internal static List<Person> SortFirstFiveByNameAscending(List<Person> peopleData)
+        {
+            //var people = _dataSource.GetPeople();
+            var sortedPeople = peopleData.OrderBy(person => person.Name).Take(5).ToList();
             return sortedPeople;
         }
         internal static List<Person> FilterByKeyword(List<Person> people,string keywordInput)

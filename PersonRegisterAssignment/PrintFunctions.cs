@@ -14,10 +14,10 @@ namespace PersonRegisterAssignment
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("*** Menu ***");
-            Console.WriteLine("\n(1) Display all suppliers and sort them by name");
-            Console.WriteLine("(2) Display all suppliers and sort them by ID");
-            Console.WriteLine("(3) Sort suppliers by name and display first five in list.");
-            Console.WriteLine("(4) Sort suppliers by ID and display first five in list.");
+            Console.WriteLine("\n(1) Display all suppliers and sort them by ID");
+            Console.WriteLine("(2) Sort suppliers by ID and display first five in list.");
+            Console.WriteLine("(3) Display all suppliers and sort them by name");
+            Console.WriteLine("(4) Sort suppliers by name and display first five in list.");
             Console.WriteLine("(5) Search suppliers name by keyword.");
             Console.WriteLine("(6) Go back to shire (Quit application).");
             Console.Write($"\nEnter an option and press enter to continue: ");
@@ -28,19 +28,21 @@ namespace PersonRegisterAssignment
         /// </summary>
         public static void PrintPeople( List<Person> people, int menuChoice)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             string menuMessage = menuChoice switch
             {
-               1 => "\nSorting by name displaying all suppliers.\n",
-               2 => "\nSorting by ID displaying all suppliers.\n",
-               3 => "\nSorting by name filtering first five suppliers.\n",
-               4 => "\nSorting by ID filtering first five suppliers.\n",
-               _ => string.Empty
+               1 => "\nSorting by ID displaying all suppliers.\n",
+               2 => "\nSorting by ID filtering first five suppliers.\n",
+               3 => "\nSorting by name displaying all suppliers.\n",
+               4 => "\nSorting by name filtering first five suppliers.\n",
+                _ => string.Empty
             };
             Console.WriteLine(menuMessage);
 
             var peopleCount = people.Count;
             if (peopleCount > 0)
             {
+                
                 Console.WriteLine(
                 
                 $"{"ID",-5}" +
@@ -71,6 +73,7 @@ namespace PersonRegisterAssignment
             {
                 Console.WriteLine("* No result found, please try again.\n");
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
         internal static void PrintBanner()
         {
