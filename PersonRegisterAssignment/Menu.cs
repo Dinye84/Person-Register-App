@@ -13,7 +13,7 @@ namespace PersonRegisterAssignment
     {
         internal static void GetMenu(List<Person> peopleDataSource)
         {
-            List<Person> printPeople = peopleDataSource;
+            List<Person> printPeople;
 
             while (true)
             {
@@ -27,8 +27,6 @@ namespace PersonRegisterAssignment
                     Console.WriteLine("\n[Invalid input.Please only use numbers between 1-6.]\n");
                     continue;
                 }
-
-                
 
                 switch (menuSelection)
                 {
@@ -64,12 +62,11 @@ namespace PersonRegisterAssignment
                                 break;
                             }
                         } 
-                        break;
 
+                        break;
                     case 6:
                         RegisterFunctions.QuitApplication();
                         return;
-
                     default:
                         Console.WriteLine("\n[Invalid input. Please enter a number between 1 and 6.]\n");
                         continue;

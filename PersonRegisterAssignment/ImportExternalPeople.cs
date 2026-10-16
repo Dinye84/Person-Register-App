@@ -8,8 +8,7 @@ namespace PersonRegisterAssignment
 {
     internal class ImportExternalPeople : IPeopleDataSources
     {
-        private readonly string _filePath = @"C:\Users\Andreas\CodeProjects\PersonRegisterAssignment\PersonRegisterAssignment\externalPeopleData.JSON";
-
+        private readonly string _filePath = @".\externalPeopleData.JSON";
         public List<Person> GetPeople()
         {
              if(!File.Exists(_filePath))

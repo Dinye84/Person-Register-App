@@ -5,8 +5,6 @@ namespace PersonRegisterAssignment
 {
     internal class Person
     {
-       
-
         private int _id = 0;
         public int Id 
         { 
@@ -27,6 +25,7 @@ namespace PersonRegisterAssignment
         }
         public Address Address { get; set; } = new();
         public Company Company { get; set; } = new();
+
         public Person()
         {
             Id = _id;
