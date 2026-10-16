@@ -1,11 +1,17 @@
 ﻿namespace PersonRegisterAssignment
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        internal static void Main(string[] argument)
         {
-            PrintFunctions.PrintBanner();
-            Menu.GetMenu(); 
+            // To switch between hardcoded and imported data, add the value "1" or "2" below.
+            RegisterFunctions.SelectDataSource(2/*switch here*/);
+
+            RegisterFunctions.SelectEntryPoint(argument);
+            
+            PrintFunctions.PrintBanner(); 
+            
+            Menu.GetMenu(RegisterFunctions.GetDataSource(RegisterFunctions.SelectedDataSource));
         }
     }
 }

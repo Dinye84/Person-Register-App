@@ -7,18 +7,18 @@ namespace PersonRegisterAssignment
     internal class Company
     {
         private string _companyName = "-";
-        internal string CompanyName
+        public string CompanyName
         {
             get { return _companyName; }
             set { _companyName = value; }
         }
         private string _slogan = "-";
-        internal string Slogan
+        public string Slogan
         {
             get { return _slogan; }
             set { _slogan = value; }
         }
-        internal Company()
+        public Company()
         {
             CompanyName = _companyName;
             Slogan = _slogan;

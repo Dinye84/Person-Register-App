@@ -11,9 +11,10 @@ namespace PersonRegisterAssignment
 {
     internal class Menu
     {
-        internal static void GetMenu()
+        internal static void GetMenu(List<Person> peopleDataSource)
         {
- 
+            List<Person> printPeople;
+
             while (true)
             {
                 PrintFunctions.PrintMenuOptions();
@@ -27,26 +28,22 @@ namespace PersonRegisterAssignment
                     continue;
                 }
 
-                var people = new List<Person>();
-
                 switch (menuSelection)
                 {
                     case 1:
-                        people = RegisterFunctions.SortByNameAscending();
-                        break;
 
+                        printPeople = RegisterFunctions.SortByIdAscending(peopleDataSource);
+                        break;
                     case 2:
-                        people = RegisterFunctions.SortByIdAscending();
+                        printPeople = RegisterFunctions.SortFirstFiveByIdAscending(peopleDataSource);
                         break;
 
                     case 3:
-                        people = RegisterFunctions.SortFirstFiveByNameAscending();
+                        printPeople = RegisterFunctions.SortByNameAscending(peopleDataSource);
                         break;
-
                     case 4:
-                        people = RegisterFunctions.SortFirstFiveByIdAscending();
+                        printPeople = RegisterFunctions.SortFirstFiveByNameAscending(peopleDataSource);
                         break;
-
                     case 5:
 
                         while (true)
@@ -61,22 +58,21 @@ namespace PersonRegisterAssignment
                             }
                             else
                             {
-                                people = RegisterFunctions.FilterByKeyword(keywordInput);
+                                printPeople = RegisterFunctions.FilterByKeyword(peopleDataSource, keywordInput);
                                 break;
                             }
                         } 
-                        break;
 
+                        break;
                     case 6:
                         RegisterFunctions.QuitApplication();
                         return;
-
                     default:
                         Console.WriteLine("\n[Invalid input. Please enter a number between 1 and 6.]\n");
                         continue;
                 }
 
-                PrintFunctions.PrintPeople(people, menuSelection);
+                PrintFunctions.PrintPeople(printPeople, menuSelection);
             }
         }
     }
