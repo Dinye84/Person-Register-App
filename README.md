@@ -12,7 +12,8 @@ dotnet run
 ``` 
 
 Change data source from hardcoded to external data source by changing the integer number in program.cs Main() / RegisterFunctions.SelectDataSource(2/*switch here*/);.  
-  
+The register functions will get the data source depending on which source you select in Program.Main() through the IPeopleDataSources contract.
+
 ### Program structure  
 
 Classes and methods are divided by responsibility to make it easier to understand, navigate and update. The classes' responsibylities are divided as follows:  

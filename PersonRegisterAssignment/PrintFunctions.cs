@@ -124,7 +124,7 @@ namespace PersonRegisterAssignment
 .d$$$$$$$$$$P                                                         `T$b.                                                                      
 """" + 
 "\n\n"
-);
+);          Console.ResetColor();
             Console.WriteLine("Find your local LOTR supplier\n");
         }
     }

@@ -38,7 +38,6 @@ namespace PersonRegisterAssignment
 
         public static void PowerShellController(string[] argument)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
             bool sortByIdAscendingCommand = 
                 argument.Length == 1 &&
                 argument[0] == "list";
@@ -173,7 +172,6 @@ namespace PersonRegisterAssignment
         internal static void QuitApplication()
         {
             Console.WriteLine("\nClosing application...\n");
-            Console.ResetColor();
             Environment.Exit(0);
         }   
    } 
