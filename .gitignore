@@ -12,10 +12,8 @@
 *.env
 
 # Ignore specific file in specific folder
-\PersonRegisterAssignment\README.md
-\PersonRegisterAssignment\DEVLOG.md
-\PersonRegisterAssignment\Diagram.mmd
-\PersonRegisterAssignment\externalDataSource.JSON
+/PersonRegisterAssignment/DEVLOG.md
+/PersonRegisterAssignment/Diagram.mmd
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
