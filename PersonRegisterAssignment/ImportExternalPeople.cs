@@ -11,10 +11,12 @@ namespace PersonRegisterAssignment
         private readonly string _filePath = @".\externalPeopleData.JSON";
         public List<Person> GetPeople()
         {
-             if(!File.Exists(_filePath))
+            if(!File.Exists(_filePath))
             {
                 return [];
             }
+            
+
             var json = File.ReadAllText(_filePath);
             var people = JsonSerializer.Deserialize<List<Person>>(json) ?? [];
             return people;

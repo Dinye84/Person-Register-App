@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonRegisterAssignment.Resources.Texts;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Globalization;
@@ -14,93 +15,196 @@ namespace PersonRegisterAssignment
 {
     internal class RegisterFunctions
     {
-        private static int _selectedDataSource = 0;
-        internal static int SelectedDataSource 
+        //Before exploring ENUM for datasources, Remove after completion.
+        //private static int _selectedDataSource = 0;
+        //internal static int SelectedDataSource 
+        //{
+        //    get { return _selectedDataSource; } 
+        //    set { _selectedDataSource = value; } 
+        //}
+
+        //internal RegisterFunctions()
+        //{
+        //    _selectedDataSource = SelectedDataSource;
+        //}
+
+        private static DataSource _selectedDataSource = 0;
+        internal static DataSource SelectedDataSource
         {
-            get { return _selectedDataSource; } 
-            set { _selectedDataSource = value; } 
+            get { return _selectedDataSource; }
+            set { _selectedDataSource = value; }
         }
-        
+
         internal RegisterFunctions()
         {
             _selectedDataSource = SelectedDataSource;
         }
 
-        public static void SelectEntryPoint(string[] argument)
+        public enum DataSource
+        {
+            Hardcoded = 1,
+            JsonFile = 2
+        }
+
+        //FORTSÄTT PLACERA IN ENUM OCH ERSÄTT MED BOOL
+        public enum Command
+        {
+        sortByIdAscending,
+        sortFirstFiveById,
+        sortByNameAscending,
+        sortFirstFiveByName,
+        filterByKeyword,
+        switchDataSource,
+        getHelp
+
+        }
+        internal static DataSource SwitchDataSource()
+        {
+            bool isSuccessfulParse;
+            DataSource SelectedDataSource;
+
+            while (true)
+             {   
+                PrintFunctions.Print(Message.SelectDataSource);
+                string? userInput = Console.ReadLine() ?? "";
+                isSuccessfulParse = int.TryParse(userInput, out int parsedNumber);
+                SelectedDataSource = (DataSource)parsedNumber;
+
+                if (isSuccessfulParse == false || SelectedDataSource != DataSource.Hardcoded && SelectedDataSource != DataSource.JsonFile)
+                {
+                    PrintFunctions.Print(Message.InvalidDataSource);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return _selectedDataSource = SelectedDataSource;
+        }
+        public static void SelectDataSource(string[] argument)
         {
             bool argumentSent = argument.Length >= 1;
-            if(argumentSent)
+
+            SwitchDataSource();
+
+            if (argumentSent)
             {
-                PowerShellController(argument);
+                CommandController(argument);
                 QuitApplication();
+            }
+            else if (argumentSent == false)
+            {
+                _selectedDataSource = SelectedDataSource;
+
             }
         }
 
-        public static void PowerShellController(string[] argument)
+        public static Command GetCommand(string[] argument)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            bool sortByIdAscendingCommand = 
+
+            Command selectedCommand = 0;
+
+
+            if (
                 argument.Length == 1 &&
-                argument[0] == "list";
-
-            bool sortFirstFiveByIdCommand = 
+                argument[0] == "list")
+            {
+                selectedCommand = Command.sortByIdAscending;
+            }
+            else if (
                 argument.Length == 2 &&
                 argument[0] == "list" &&
-                argument[1] == "--top5";
-
-            bool sortByNameAscendingCommand = 
+                argument[1] == "--top5")
+            {
+                selectedCommand = Command.sortFirstFiveById;
+            }
+            else if (
                 argument.Length == 2 &&
                 argument[0] == "list" &&
-                argument[1] == "--sort";
-
-            bool sortFirstFiveByNameCommand = 
+                argument[1] == "--sort")
+            {
+                selectedCommand = Command.sortByNameAscending;
+            }
+            else if (
                 argument.Length == 3 &&
                 argument[0] == "list" &&
                 argument[1] == "--sort" &&
-                argument[2] == "--top5";
-
-            bool isFilterByKeywordCommand =
+                argument[2] == "--top5")
+            {
+                selectedCommand = Command.sortFirstFiveByName;
+            }
+            else if (
                 argument.Length == 3 &&
                 argument[0] == "list" &&
                 argument[1] == "--search" &&
-                !string.IsNullOrWhiteSpace(argument[2]);
-
-            bool getHelpCommand = argument.Length == 2 && 
+                !string.IsNullOrWhiteSpace(argument[2]
+                ))
+            {
+                selectedCommand = Command.filterByKeyword;
+            }
+            else if (
                 argument[0] == "list" &&
-                argument[1] == "--help";
+                argument[1] == "--switch"
+                )
+            {
+                selectedCommand = Command.switchDataSource;
+            }
+            else if (
+                argument.Length == 2 &&
+                argument[0] == "list" &&
+                argument[1] == "--help"
+                )
+            {
+                selectedCommand = Command.getHelp;
+            }
 
-            if (sortByIdAscendingCommand)
+            return selectedCommand;
+
+        }
+        public static void CommandController(string[] argument)
+        {
+            GetCommand(argument);
+
+            Command selectedCommand = 0;
+
+            if (selectedCommand == Command.sortByIdAscending)
             {
                 List<Person> people = GetDataSource(SelectedDataSource);
-                var sortedPeople = RegisterFunctions.SortByIdAscending(people);
-                PrintFunctions.PrintPeople(sortedPeople, 1);
+                var sortedPeople = SortByIdAscending(people);
+                PrintFunctions.PrintPeople(sortedPeople/*, 1*/);
             }
-            else if (sortFirstFiveByIdCommand)
+            else if (selectedCommand == Command.sortFirstFiveById)
             {
                 List<Person> people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortFirstFiveByIdAscending(people);
-                PrintFunctions.PrintPeople(sortedPeople, 2);
+                PrintFunctions.PrintPeople(sortedPeople/*, 2*/);
             }
-            else if (sortByNameAscendingCommand)
+            else if (selectedCommand == Command.sortByNameAscending)
             {
                 List<Person> people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortByNameAscending(people);
-                PrintFunctions.PrintPeople(sortedPeople, 3);
+                PrintFunctions.PrintPeople(sortedPeople/*, 3*/);
             }
-            else if (sortFirstFiveByNameCommand)
+            else if (selectedCommand == Command.sortFirstFiveByName)
             {
                 List<Person> people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortFirstFiveByNameAscending(people);
-                PrintFunctions.PrintPeople(sortedPeople, 4);
+                PrintFunctions.PrintPeople(sortedPeople/*, 4*/);
             }
-            else if (isFilterByKeywordCommand)
+            else if (selectedCommand == Command.filterByKeyword)
             {
                 string searchKeyword = argument[2];
                 List<Person> people = GetDataSource(SelectedDataSource);
                 var sortedPeople = FilterByKeyword(people, searchKeyword);
-                PrintFunctions.PrintPeople(sortedPeople, 5);
+                PrintFunctions.PrintPeople(sortedPeople/*, 5*/);
             }
-            else if (getHelpCommand)
+            else if (selectedCommand == Command.switchDataSource)
+            {
+                SwitchDataSource();
+            }
+            
+            else if (selectedCommand == Command.getHelp)
             {
                 PrintFunctions.GetHelpMessage();
             }
@@ -109,23 +213,19 @@ namespace PersonRegisterAssignment
                 PrintFunctions.GetUnknownCommandMessage();
             }
         }
-
-        public static int SelectDataSource(int selection)
+        public static List<Person> GetDataSource(DataSource source)
         {
-            _selectedDataSource = selection;
-            return _selectedDataSource;
-        }
+            SelectedDataSource = source;
 
-        public static List<Person> GetDataSource(int selectedDataSource)
-        {
-            if (selectedDataSource == 1)
+            
+            if (SelectedDataSource == DataSource.Hardcoded)
             {
                 IPeopleDataSources _dataSource = new HardcodedPeopleData();
                 var people = _dataSource.GetPeople();
                 return people;
             }
 
-            else if (selectedDataSource == 2)
+            else if (SelectedDataSource == DataSource.JsonFile)
             {
                 IPeopleDataSources _dataSource = new ImportExternalPeople();
                 var people = _dataSource.GetPeople();
@@ -172,8 +272,7 @@ namespace PersonRegisterAssignment
 
         internal static void QuitApplication()
         {
-            Console.WriteLine("\nClosing application...\n");
-            Console.ResetColor();
+            PrintFunctions.Print(Message.ClosingApplication);
             Environment.Exit(0);
         }   
    } 

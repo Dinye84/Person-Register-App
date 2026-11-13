@@ -1,16 +1,15 @@
-﻿namespace PersonRegisterAssignment
+﻿using PersonRegisterAssignment.Resources.Texts;
+using System.Resources;
+//using static PersonRegisterAssignment.RegisterFunctions;
+
+namespace PersonRegisterAssignment
 {
     internal static class Program
     {
         internal static void Main(string[] argument)
         {
-            // To switch between hardcoded and imported data, add the value "1" or "2" below.
-            RegisterFunctions.SelectDataSource(2/*switch here*/);
-
-            RegisterFunctions.SelectEntryPoint(argument);
-            
-            PrintFunctions.PrintBanner(); 
-            
+            PrintFunctions.PrintBanner();
+            RegisterFunctions.SelectDataSource(argument);
             Menu.GetMenu(RegisterFunctions.GetDataSource(RegisterFunctions.SelectedDataSource));
         }
     }

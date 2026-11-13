@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using PersonRegisterAssignment.Resources.Texts;
 
 namespace PersonRegisterAssignment
 {
@@ -13,7 +14,7 @@ namespace PersonRegisterAssignment
     {
         internal static void GetMenu(List<Person> peopleDataSource)
         {
-            List<Person> printPeople;
+            List<Person> printPeople = [];
 
             while (true)
             {
@@ -24,7 +25,7 @@ namespace PersonRegisterAssignment
 
                 if (isParseSuccessful == false)
                 {
-                    Console.WriteLine("\n[Invalid input.Please only use numbers between 1-6.]\n");
+                    PrintFunctions.Print(Message.InvalidEntryPoint);
                     continue;
                 }
 
@@ -48,13 +49,13 @@ namespace PersonRegisterAssignment
 
                         while (true)
                         {
-                            Console.Write("\nEnter keyword: ");
+                            PrintFunctions.Print(Message.EnterKeyword);
                             string keywordInput = Console.ReadLine() ?? "";
                             var isKeywordNullOrWhiteSpace = string.IsNullOrWhiteSpace(keywordInput);
 
                             if (isKeywordNullOrWhiteSpace == true)
                             {
-                                Console.WriteLine("\nYour keyword is null or empty, please try again!");
+                                PrintFunctions.Print(Message.NullOrEmpty);
                             }
                             else
                             {
@@ -65,14 +66,20 @@ namespace PersonRegisterAssignment
 
                         break;
                     case 6:
+                        RegisterFunctions.SwitchDataSource();
+                        break;
+                    case 7:
                         RegisterFunctions.QuitApplication();
                         return;
+
                     default:
-                        Console.WriteLine("\n[Invalid input. Please enter a number between 1 and 6.]\n");
+                        PrintFunctions.Print(Message.InvalidMenuChoice);
                         continue;
                 }
 
-                PrintFunctions.PrintPeople(printPeople, menuSelection);
+                PrintFunctions.BuildMenuOptions(menuSelection);
+                PrintFunctions.PrintPeople(printPeople);
+
             }
         }
     }

@@ -1,0 +1,9 @@
+usage: list [--top5] [--sort] [--search <keyword>] [--help]
+
+These are the common register commands used in various situations:
+display lists
+    list            sorts list by ID.
+    --top5          sorts list by ID and displays first five people.
+    --sort          sorts list by name.
+    --sort --top5   sorts list by name and displays the first five people.
+    --search        searches register names and displays all people containing the keyword
