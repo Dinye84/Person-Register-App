@@ -9,7 +9,7 @@ namespace PersonRegisterAssignment
         internal static void Main(string[] argument)
         {
             PrintFunctions.PrintBanner();
-            RegisterFunctions.SelectDataSource(argument);
+            RegisterFunctions.SelectDataSourcePath(argument);
             Menu.GetMenu(RegisterFunctions.GetDataSource(RegisterFunctions.SelectedDataSource));
         }
     }

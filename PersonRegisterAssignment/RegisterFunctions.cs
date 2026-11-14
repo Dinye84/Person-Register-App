@@ -28,6 +28,7 @@ namespace PersonRegisterAssignment
         //    _selectedDataSource = SelectedDataSource;
         //}
 
+
         private static DataSource _selectedDataSource = 0;
         internal static DataSource SelectedDataSource
         {
@@ -45,8 +46,6 @@ namespace PersonRegisterAssignment
             Hardcoded = 1,
             JsonFile = 2
         }
-
-        //FORTSÄTT PLACERA IN ENUM OCH ERSÄTT MED BOOL
         public enum Command
         {
         sortByIdAscending,
@@ -82,11 +81,9 @@ namespace PersonRegisterAssignment
 
             return _selectedDataSource = SelectedDataSource;
         }
-        public static void SelectDataSource(string[] argument)
+        public static void SelectDataSourcePath(string[] argument)
         {
             bool argumentSent = argument.Length >= 1;
-
-            SwitchDataSource();
 
             if (argumentSent)
             {
@@ -95,16 +92,14 @@ namespace PersonRegisterAssignment
             }
             else if (argumentSent == false)
             {
+                SwitchDataSource();
                 _selectedDataSource = SelectedDataSource;
-
             }
         }
 
         public static Command GetCommand(string[] argument)
         {
-
             Command selectedCommand = 0;
-
 
             if (
                 argument.Length == 1 &&
@@ -158,6 +153,11 @@ namespace PersonRegisterAssignment
             {
                 selectedCommand = Command.getHelp;
             }
+            else
+            {
+                PrintFunctions.Print(Message.UnknownCommand);
+                RegisterFunctions.QuitApplication();
+            }
 
             return selectedCommand;
 
@@ -170,32 +170,32 @@ namespace PersonRegisterAssignment
 
             if (selectedCommand == Command.sortByIdAscending)
             {
-                List<Person> people = GetDataSource(SelectedDataSource);
+                var people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortByIdAscending(people);
                 PrintFunctions.PrintPeople(sortedPeople/*, 1*/);
             }
             else if (selectedCommand == Command.sortFirstFiveById)
             {
-                List<Person> people = GetDataSource(SelectedDataSource);
+                var people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortFirstFiveByIdAscending(people);
                 PrintFunctions.PrintPeople(sortedPeople/*, 2*/);
             }
             else if (selectedCommand == Command.sortByNameAscending)
             {
-                List<Person> people = GetDataSource(SelectedDataSource);
+                var people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortByNameAscending(people);
                 PrintFunctions.PrintPeople(sortedPeople/*, 3*/);
             }
             else if (selectedCommand == Command.sortFirstFiveByName)
             {
-                List<Person> people = GetDataSource(SelectedDataSource);
+                var people = GetDataSource(SelectedDataSource);
                 var sortedPeople = SortFirstFiveByNameAscending(people);
                 PrintFunctions.PrintPeople(sortedPeople/*, 4*/);
             }
             else if (selectedCommand == Command.filterByKeyword)
             {
                 string searchKeyword = argument[2];
-                List<Person> people = GetDataSource(SelectedDataSource);
+                var people = GetDataSource(SelectedDataSource);
                 var sortedPeople = FilterByKeyword(people, searchKeyword);
                 PrintFunctions.PrintPeople(sortedPeople/*, 5*/);
             }
@@ -216,18 +216,20 @@ namespace PersonRegisterAssignment
         public static List<Person> GetDataSource(DataSource source)
         {
             SelectedDataSource = source;
-
+            RegisterFunctions.SwitchDataSource();
             
             if (SelectedDataSource == DataSource.Hardcoded)
             {
-                IPeopleDataSources _dataSource = new HardcodedPeopleData();
+                var _dataSource = new HardcodedPeopleData();
                 var people = _dataSource.GetPeople();
                 return people;
             }
 
             else if (SelectedDataSource == DataSource.JsonFile)
             {
-                IPeopleDataSources _dataSource = new ImportExternalPeople();
+
+                //KOLLA VARFÖR JSON FILEN INTE RETURNERAS.
+                var _dataSource = new ImportExternalPeople();
                 var people = _dataSource.GetPeople();
                 return people;
             }

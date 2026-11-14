@@ -11,7 +11,7 @@ namespace PersonRegisterAssignment
         private readonly string _filePath = @".\externalPeopleData.JSON";
         public List<Person> GetPeople()
         {
-            if(!File.Exists(_filePath))
+            if(!File.Exists(_filePath)) //JSON FILEN RETURNERAS EJ, KOLLA VARFÖR
             {
                 return [];
             }

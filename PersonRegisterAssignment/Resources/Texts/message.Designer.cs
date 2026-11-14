@@ -293,7 +293,8 @@ namespace PersonRegisterAssignment.Resources.Texts {
         
         /// <summary>
         ///   Looks up a localized string similar to Unknown option or invalid command.
-        ///usage: list [--top5] [--sort] [--search &lt;keyword&gt;] [--help].
+        ///usage: list [--top5] [--sort] [--search &lt;keyword&gt;] [--help]
+        ///.
         /// </summary>
         internal static string UnknownCommand {
             get {

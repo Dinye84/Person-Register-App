@@ -189,7 +189,8 @@
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Unknown option or invalid command.
-usage: list [--top5] [--sort] [--search &lt;keyword&gt;] [--help]</value>
+usage: list [--top5] [--sort] [--search &lt;keyword&gt;] [--help]
+</value>
     <comment>Displays unknown command message.</comment>
   </data>
   <data name="InvalidDataSource" xml:space="preserve">
